@@ -7,7 +7,7 @@ public static class Endpoints
     var createQuestionHandler = app.Services.GetRequiredService<CreateQuestionHandler>();
     var answerQuestionHandler = app.Services.GetRequiredService<AnswerQuestionHandler>();
 
-    app.MapPut("/question/{id:guid}", createQuestionHandler.CreateQuestion);
-    app.MapPost("/question/{id:guid}", answerQuestionHandler.AnswerQuestion);
+    //app.MapPut("/question/{id:guid}", createQuestionHandler.CreateQuestion);
+    //app.MapPost("/question/{id:guid}", answerQuestionHandler.AnswerQuestion);
     }
 }
