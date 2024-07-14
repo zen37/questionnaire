@@ -4,10 +4,10 @@ public static class Endpoints
 {
     public static void Configure(WebApplication app)
     {
-    var createQuestionHandler = app.Services.GetRequiredService<CreateQuestionHandler>();
-    var answerQuestionHandler = app.Services.GetRequiredService<AnswerQuestionHandler>();
+        var question = app.Services.GetRequiredService<IQuestion>();
+        var answer = app.Services.GetRequiredService<IAnswer>();
 
-    //app.MapPut("/question/{id:guid}", createQuestionHandler.CreateQuestion);
-    //app.MapPost("/question/{id:guid}", answerQuestionHandler.AnswerQuestion);
+        app.MapPut("/question/{id:guid}", question.Create);
+        app.MapPost("/question/{id:guid}", answer.Create);
     }
 }

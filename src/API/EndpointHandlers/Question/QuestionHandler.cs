@@ -2,14 +2,12 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Survey;
-public class CreateQuestionHandler
+public class QuestionHandler : IQuestion
 {
-    public static async Task CreateQuestion(HttpContext context)
+    public async Task Create(HttpContext context)
     {
         try
         {
-            Console.WriteLine("CreateQuestion invoked ...");
-
             // Extract id from the URL path
             if (!Guid.TryParse(context.Request.RouteValues["id"]?.ToString(), out var id))
             {

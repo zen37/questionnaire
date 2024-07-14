@@ -6,7 +6,7 @@ public static class Services
     {
         string storageType = builder.Configuration["StorageType"];
 
-        // Register services based on configuration value
+        //register services based on configuration value
         switch (storageType.ToLower())
         {
             case "sqlserver":
@@ -19,9 +19,8 @@ public static class Services
                 throw new ArgumentException($"Unsupported storage type: {storageType}");
         }
 
-        // Register handlers
-        builder.Services.AddScoped<CreateQuestionHandler>();
-        builder.Services.AddScoped<AnswerQuestionHandler>();
+        builder.Services.AddScoped<IQuestion, QuestionHandler>();
+        builder.Services.AddScoped<IAnswer, AnswerHandler>();
 
     }
 }

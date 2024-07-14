@@ -2,7 +2,7 @@ using Survey;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Call Services.Add to register all services and handlers
+//register all services
 Services.Add(builder);
 
 var app = builder.Build();
